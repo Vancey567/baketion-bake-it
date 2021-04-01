@@ -1,0 +1,160 @@
+//1. These devDependencies are used only for development. We dont need these when we will deploy it on server
+    "devDependencies": { 
+        "nodemon": "^2.0.6"
+    }
+
+ 
+//2. Create these scripts manually in package.json file
+    "scripts": {
+        "serve": "node server.js", // This will be used while deploying
+        "dev": "nodemon server.js" // This will be used while development
+    },
+
+//3. To run these above scripts write in terminal
+        npm run script_name 
+        eg: npm run dev
+        eg: npm run serve
+//4. In case of Yarn write
+        yarn script_name
+        eg:yarn dev
+
+//5. To post the code on gitHub install a .git file in the realtime-pizza folder by typing the code 
+        git init     // It will create a .git file in realtime-pizza folder
+
+//6. To ignore some special/encrypted file to be uploaded on gitHub create a folder named ".gitignore" in the realtime-pizza folder
+
+//7. To Commit/ Upload your codes on gitHub use
+        1. git commit -m 'initial'
+
+//8. Now install Laravel-mix in your project using code  from Larval-mix.com where --D means in Development devDependencies it wont be used after development
+        1. yarn add laravel-mix --D
+
+//9. After installation Laravel-mix, use the below code this will copy a file from node_modules/laravel-mix/setup and it will paste it  to your home/root folder denoted by '.\'
+    1. copy node_modules\laravel-mix\setup\webpack.mix.js .\
+
+   **By default the code is,
+     cp node_modules/laravel-mix/setup/webpack.mix.js ./
+     which is not recognised by windows so change "cp" to "copy" and '/' to '\' it will solve the error 
+**NOW you can see webpack.mix.js in your realtime-pizza folder. It has everything written in it what are the methods available to us etc
+
+//10. The files inside the resources folder has to be compiled and stored inside the public folder. 
+// To do this change the mix.js() code inside the webpack.mix.js to the src i.e. public folder 
+// so thatit will compile the codes inside the resources folder and it will store it in public folder
+    1. mix.js('src/app.js', 'dist/').sass('src/app.scss', 'dist/'); //'src/app.js' is the file you want to compile and 'dist/' is the destination to store the file after compilations. In the same way it also has the code for scss
+ ***2. Chnage the above code to your folder structure: mix.js('resources/js/app.js', 'public/js/app.js').sass('resources/scss/app.scss', 'public/css/app.css');
+
+// 11. copy some scripts from the laravel docs and paste in it package.json folder in scripts
+    "dev": "npm run development",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "npm run development -- --watch",
+        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "npm run production",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+
+// 12. cross-env: which is being used in the production must be installed
+    1. Go to terminal and write: yarn add cross-env --save-dev   It will be installed
+
+//13. run 'yarn watch' in terminal if it gives error saying that watch not found that means that the "script" code 
+    // that you wrote manually is not saved yet. Try saving it again it might give error asking you to compare or overwrite
+    // click on compare you will find that on one side the script code is not present. Close the compare tab and
+    // click on "OVERWRITE" by saving it. RUN THE COMMAND "yarn watch" again. It will be installed
+
+    // Again some error stating cross-env 
+    // yarn add cross-env --save-dev   RUN THIS command again
+    // yarn watch RUN THIS command again
+    // you will now see The below output. *********************Hurray Laravel-mix installed************
+    DONE  Compiled successfully in 24175ms                                                                                                                      11:53:30 AM
+
+                Asset      Size          Chunks             Chunk Names
+    /public/js/app.js  4.59 KiB  /public/js/app  [emitted]  /public/js/app
+    public/css/app.css   0 bytes  /public/js/app  [emitted]  /public/js/app
+
+14. **EXTRA** const expressLayout = require("express-ejs-layouts") 
+    // Helps in using same code on different pages by creating layouts of certain parts like navbar, body, footer.
+    // For that Create a file naming layout.ejs in views folder of the projects and
+
+15. ** TO Import data in Compass don't write anything in "id". leave it empty it will automatically generate some id 
+    => "id": {
+            
+        },
+
+
+// *****Using Passport for authentication*****
+
+1. First we will have to create a route so that we can post/send data from login/register/another page to some 
+    different url and from their we will store those data to our database.
+
+2. For that go to web.js(where their is all the routes), there we will create a .post route (app.post('')) because
+    we want to post data. we "can have same url as get" (app.post('/register', authController().postRegister)).
+    -> postRegister name must be different because we cannot keep same method in one authController
+
+3. Now go to authController, Now just below the register method create a method name postRegister(req,res){"logic here"}
+
+4. In place of logic we will write const { name, email, password } = req.body 
+    we will receive data from req.body (body object) and we will use object destructuring.
+    const { }, namw, email, password are the fields of "register form". 
+
+5. we will have to connect that postRegister to our frontend also so go to your auth folder and your register.ejs page 
+
+6. To post something from a form we need to give some attributes to it. 
+    -> action="" : This action attribute takes the url to the place where we want to post our data to. So give the route that you have creted (in this case "/register")
+    -> method="" : This takes which method you gonna use there (in this case "POST") can be "GET", "POST", "dialog" 
+
+7. In <input> tag there must be a attribute called name="" and this same name gets received in postRegister() in place of name. So name="name" received as name, name="email" received as email, name="password" received as password in postRegister()
+    -> and button type should be "submit"
+
+8. In input field of password write autocomplete="on"
+
+9. Express js by default do not know what kindda data is being received, Received data can be of different 
+    type like json data, url encoded data, form data etc. We have to explicitely tell express what type of 
+    data is being received explicitely.
+    -> for that Go to server.js
+    -> In Asset we earlier mentioned that we are getting json data (app.use(express.json())
+    -> sometime we might receive url encoded data for that we will have to enable it by writing 
+        app.use(express.urlrencoded( {extended: false} ))
+    
+10. Now create a database to store the regiteraton detail.
+    -> create a Schema, model in user.js in models folder and export it from there
+    -> Now import the model (User) in authController.js
+    -> check every field is filled or not and do other thing 
+
+11. create Hashed password
+    -> import bcrypt using 'yarn add bcrypt'
+    -> then const hashedpassword = await.bcrypt.hash(password, 10) // 1st is kisko hash karna hai(password)
+
+12. 
+
+// basics of using Passport
+1. go to Passportjs.com
+2. select the authentication type you want and install it in you project 
+3. yarn add passport passport-local // These are two different plugins 1st is Passport, 2nd is passport-local
+4. import it in server.js file
+5. Now we need to config passport in server.js, for this 
+    -> after that we need to create stratagies. since the code is big we will store our stratagies in a separate file and we will import in later. For this we will create a file named passport.js in config folder and import the module here.
+    -> const passportInit = require('./app/config/passport')
+    -> passportInit(passport) // we are passing the passport that we have installed in our project to the app/config/passport.js file. It will be received in the init() there.
+    -> app.use(passport.initialize())
+    -> app.use(passport.session()) // because this passport works using session
+6. 
+
+***In serializeUser() we are storing data in the session while in deserializeUser we are getting the stored data
+
+*** How to redirect on some error or on anything
+        -> return res.redirect('/login')
+
+// To escape some pages from applying ejs templates use partials
+    1. create a folder named "partials" in views folder
+    2. paste the code (say footer code) in a file with some name(footer.ejs)
+    3. to use the code you have to include the file in the file where you want to use it.
+        Lets say you want to use the code in homepage then include the file in the home page.
+
+        Syntax:
+        <%- include("file Path with .ejs at the end") %>
+
+        <%- include("partials/footer.ejs") %>
+        <%- include("../partials/footer.ejs") %> // Path can vary be carefully
+
+    And in the pages where you don't want to have the template then don't include it in that file.
+
+    
+

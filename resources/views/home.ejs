@@ -1,0 +1,75 @@
+<!-- Hero/Main header -->
+<section class="hero py-16">
+    <div class="container md:pl-10 mx-auto flex items-center justify-between">
+        <div class="w-1/2">
+            <h6 class="text-lg">
+                <e>Are You Hungry?</em>
+            </h6>
+            <h1 class="text-3xl md:text-6xl font-bold">Don't Wait</h1>
+            <button class="btn-primary px-3 md:px-6 py-2 md:text-lg md:py-2 rounded-full text-white font-bold mt-4"><a href="/#menuid">Order Now</a></button>
+        </div>
+        <div class="w-1/2">
+            <img src="/img/Studio_Project.png" alt="">
+        </div>
+    </div>
+</section>
+
+<!-- Menu Section Starts -->
+<section class="menu container md:px-10 mx-auto py-8" id="menuid">
+    <h1 class="text-xl font-bold mb-8 pt-10">Menu</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 col-gap-12 row-gap-16 pb-16">
+        <!-- CARDS Starts -->
+        <% cakes.forEach(function(cake) { %>
+            <div class="w-full md:w-64 cake-card py-5">
+                <div>
+                    <button class="mx-auto w-full focus:outline-none" id="prodimg" data-prod="<%= JSON.stringify(cake) %>">
+                        <a href="/product/productDetails/<%= cake.id %>">
+                            <img class="h-40 mb-4 mx-auto rounded-sm" src="/img/<%= cake.image %>" alt="cake_img">
+                        </a>
+                    </button>
+                </div>
+                <div class="text-center">
+                    <h2 class="mb-4 text-lg">
+                        <%= cake.name %>
+                    </h2>
+                    <span class="size py-1 px-4 rounded-full uppercase text-xs">
+                        <%= cake.size %>
+                    </span>
+                    <div class="flex items-center justify-around mt-6">
+                        <span class="font-bold text-lg">₹<%= cake.price %></span>
+                        <button data-cake="<%= JSON.stringify(cake) %>" 
+                            class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold ">
+                            <span>+</span>
+                            <span class="ml-4">Add</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+    </div>
+</section>
+
+<!-- About Us -->
+<section class="aboutmain w-full pb-4" id="aboutid">
+    <h1 class="about text-center text-5xl">About Us</h1>
+    <div class="md:flex">
+        <div class="md:w-1/2 text-lg px-3 md:text-xl font-bold">
+            <!-- <p class="md:px-20 pt-6 md:pt-12 pb-5 md:pb-10">Baketion is a platform for all the home bakers who want to bake for others show their baking skills. It
+                is trying to carve its way to become a trusted destination for home-bakers of all levels
+                to learn, be inspired, share their enthusiasm for baking and allow their lovers to get their desired
+                cakes hassle-free. Home to the best recipes, content, tips and tools and of course a platform for all of
+                us cake lovers to buy from our favourite home bakers, we bring baking to life in everything we do.
+            </p> -->
+            <p class="md:px-20 pt-6 md:pt-12 pb-5 md:pb-10">We are exactly what you are looking for. Yes, we are an FSSAI certified online cake and Bakery Company that specializes in delivering absolutely lip-smacking delicacies. Currently, we are delivering cakes in Jorhat only, but sooner we will expand our scope. We are not just a bakery, we are not just bakers. In fact, we are just like you, a bunch of food lovers fascinated with sweet indulgence, who dreamt of creating an appetizing fairyland of divine delicacies that relishes the utmost desires.
+            </p>
+
+            <p class="md:px-20">So, be prepared to experience something devilishly delicious, something that will take even the hardest to please Cake Lovers on a delectable ride into the World of Sweet Indulgence where we celebrate Happiness! Watch Out Us! We Are Here to Redefine Sweetness our matchless services of delivering cakes online.
+            </p>
+        </div>
+        <div class="md:w-1/2">
+              <img src="/img/about.png" alt="img">
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer.ejs') %>

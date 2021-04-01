@@ -1,0 +1,23 @@
+<section class="addMenuForm h-auto flex justify-center items-center">
+    <div class="editItems">        
+        <a href="/dashboard/addOrder">
+            <i class="fa fa-list" aria-hidden="true">View Items</i>
+        </a>
+    </div>
+    <form method="POST" action="/addMenu" class="w-1/2 bg-white shadow-md rounded px-8 pt-6 pb-8 mt-4 justify-center items-center ">
+        <% if(messages.error) { %>
+            <span class="text-red-500 text-sm"><%= messages.error %></span>
+          <% } %>
+        <label for="Pname" class="block text-gray-700 text-sm font-bold mb-2">Product Name</label>
+        <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="prodName">
+        <label for="" class="block text-gray-700 text-sm font-bold mb-2">Price</label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text" name="price">
+        <label for="" class="block text-gray-700 text-sm font-bold mb-2">Size</label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text" name="size">
+        <label for="" class="block text-gray-700 text-sm font-bold mb-2">Image</label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text" name="image">
+        <label for="" class="block text-gray-700 text-sm font-bold mb-2">Description</label>
+        <textarea type="textbox" name="description" rows="6" cols="60" class="border-2 rounded-md border-red-300 focus:outline-none"></textarea>
+        <button class="btn-primary rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"type="submit">Add</button>
+    </form>
+</section>
