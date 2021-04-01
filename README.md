@@ -13,7 +13,7 @@
  b) `orders` 
  c) `users`
 
-5. now import menus.json file in 'menus' collection  from the files above
+5. now import `menus.json` file in `menus` collection  from the files above
 
 # To Run this project run
 `yarn dev`
