@@ -1,6 +1,6 @@
 # baketion-bake-it
 # To Setup this project
-1. install all the node module by using command
+1. install all the require dependecies using command
 `yarn install`
 
 2. install nodemon -> 
