@@ -1,10 +1,10 @@
 # baketion-bake-it
 # To Setup this project
 1. install all the node module by using command
- `yarn install`
+`yarn install`
 
 2. install nodemon -> 
-  `yarn add nodemon -D`
+ `yarn add nodemon -D`
 
 3. create a database named 'cake' in mongodb compass.
 
@@ -13,7 +13,7 @@
 5. now import menus.json file in 'menus' collection  from the files above
 
 # To Run this project run
-yarn dev
+`yarn dev`
 
 # To Run laravel
-yarn watch
+`yarn watch`
