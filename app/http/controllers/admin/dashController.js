@@ -35,8 +35,9 @@ function dashController() {
                 return res.redirect('/login');
             })
         },
-        addOrder(req, res) {
-            res.render('admin/addOrder');
+        async addOrder(req, res) {
+            const menu = await Menu.find()
+            return res.render('admin/addOrder', {menu: menu});
         }
     }
 }

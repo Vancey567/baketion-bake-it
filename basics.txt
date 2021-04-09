@@ -69,11 +69,11 @@
     /public/js/app.js  4.59 KiB  /public/js/app  [emitted]  /public/js/app
     public/css/app.css   0 bytes  /public/js/app  [emitted]  /public/js/app
 
-14. **EXTRA** const expressLayout = require("express-ejs-layouts") 
+// 14. **EXTRA** const expressLayout = require("express-ejs-layouts") 
     // Helps in using same code on different pages by creating layouts of certain parts like navbar, body, footer.
     // For that Create a file naming layout.ejs in views folder of the projects and
 
-15. ** TO Import data in Compass don't write anything in "id". leave it empty it will automatically generate some id 
+// 15. ** TO Import data in Compass don't write anything in "id". leave it empty it will automatically generate some id 
     => "id": {
             
         },
@@ -158,3 +158,5 @@
 
     
 
+    // To install a specific version of the npm package use: npm install -D package_name@version eg: npm i -D laravel-mix@5.0.4
+    // With the --production flag (or when the NODE_ENV environment variable is set to production), npm will not install modules listed in devDependencies."
