@@ -37677,13 +37677,13 @@ socket.on('orderUpdated', function (data) {
 //     }
 // })
 // Product detail page
-
-prodimg.forEach(function (btn) {
-  btn.addEventListener('click', function (e) {
-    var prod = JSON.parse(btn.dataset.prod);
-    console.log(prod);
-  });
-}); // function removeProd(prodid) {
+// prodimg.forEach((btn) => {
+//     btn.addEventListener('click', (e) => {
+//         let prod = JSON.parse(btn.dataset.prod)
+//         console.log(prod);
+//     })
+// })
+// function removeProd(prodid) {
 //     let cart =  JSON.parse(localStorage.getItem('cart'));
 //     let newcart = cart.filter((items) =>  session.items.prod = !prodid)
 //     localStorage.setItem('cart', JSON.stringify(newcart))

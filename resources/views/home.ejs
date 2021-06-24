@@ -22,11 +22,11 @@
         <% cakes.forEach(function(cake) { %>
             <div class="w-full md:w-64 cake-card py-5">
                 <div>
-                    <button class="mx-auto w-full focus:outline-none" id="prodimg" data-prod="<%= JSON.stringify(cake) %>">
+                    <!-- <button class="mx-auto w-full focus:outline-none" id="prodimg" data-prod="<%= JSON.stringify(cake) %>"> -->
                         <a href="/product/productDetails/<%= cake.id %>">
                             <img class="h-40 mb-4 mx-auto rounded-sm" src="/img/<%= cake.image %>" alt="cake_img">
                         </a>
-                    </button>
+                    <!-- </button> -->
                 </div>
                 <div class="text-center">
                     <h2 class="mb-4 text-lg">
@@ -38,6 +38,35 @@
                     <div class="flex items-center justify-around mt-6">
                         <span class="font-bold text-lg">₹<%= cake.price %></span>
                         <button data-cake="<%= JSON.stringify(cake) %>" 
+                            class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold ">
+                            <span>+</span>
+                            <span class="ml-4">Add</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        <% pastrys.forEach(function(pastry) { %>
+            <!-- <%= console.log(pastry) %> -->
+
+            <div class="w-full md:w-64 cake-card py-5">
+                <div>
+                    <!-- <button class="mx-auto w-full focus:outline-none" id="prodimg" data-prod="<%= JSON.stringify(cake) %>"> -->
+                        <a href="/product/productDetails/<%= pastry.id %>">
+                            <img class="h-40 mb-4 mx-auto rounded-sm" src="/img/<%= pastry.image %>" alt="cake_img">
+                        </a>
+                    <!-- </button> -->
+                </div>
+                <div class="text-center">
+                    <h2 class="mb-4 text-lg">
+                        <%= pastry.name %>
+                    </h2>
+                    <span class="size py-1 px-4 rounded-full uppercase text-xs">
+                        <%= pastry.size %>
+                    </span>
+                    <div class="flex items-center justify-around mt-6">
+                        <span class="font-bold text-lg">₹<%= pastry.price %></span>
+                        <button data-pastry="<%= JSON.stringify(pastry) %>" 
                             class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold ">
                             <span>+</span>
                             <span class="ml-4">Add</span>

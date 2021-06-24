@@ -6,7 +6,7 @@ function productController() {
         async show(req, res) {
             const _id = req.params.id;
             let cake = await Menu.findById(_id);
-            res.render('product/productDetails', {cake:cake});
+            res.render('product/productDetails', {cake: cake});
         },
         
     }

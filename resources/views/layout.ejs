@@ -37,7 +37,7 @@
             <% if(user) { %>
                 <% if(user.role==='admin' ) { %>
                     <li class="ml-4 md:ml--6 text-sm md:text-lg"><a href="/admin/orders">Orders</a></li>
-                    <li class="ml-4 text-sm md:text-lg"><a href="/admin" target="_blank">Dashboard</a></li>
+                    <li class="ml-4 text-sm md:text-lg"><a href="/dashboard" target="_blank">Dashboard</a></li>
                     <li class="ml-4 md:ml--6 text-sm md:text-lg">
                         <form id="logout" action="/logout" method="POST">
                             <a onclick="document.getElementById('logout').submit()" href="#">Logout</a>
@@ -48,7 +48,8 @@
                             <!-- <span>
                                     <i class="fa fa-user" aria-hidden="true"></i>
                                 </span> -->
-                            <span>🖐<%= user.name %></span>
+                            <!-- <span>🖐<%= user.name %></span> -->
+                            <span>Hii</span>
                         </a>
                     </li>
                     <% } else { %>

@@ -46,7 +46,7 @@ function initRoutes(app) {
     // app.get('/dashboard', guest, AdminDashController().editMenu)
     app.get('/dashboard', AdminDashController().adminDash)
     app.get('/dashboard/addMenu', AdminDashController().addMenu)
-    app.post('/addMenu', AdminDashController().postAddMenu)
+    app.post('/addmenu', AdminDashController().postAddMenu)
     app.get('/dashboard/addOrder', AdminDashController().addOrder)
 
 
@@ -65,6 +65,14 @@ function initRoutes(app) {
 
     // Delete prod
     app.get('/cart/deleteCart/:id', cartController().delete)
+
+    // Delete Product from dashboard
+    app.get('/dashboard/deleteprod/:id', AdminDashController().deleteProduct)
+    
+    // Edit Products from dashboard
+    app.get('/dashboard/editproduct/:id', AdminDashController().editProduct)
+    app.put('/addMenu/:id', AdminDashController().postAddMenu)
+    
 
 }
 

@@ -18,11 +18,11 @@ const Menu = require('./app/models/menu')
 const Order = require('./app/models/order')
 const admin = require('./app/http/middleware/admin')
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 3000
 
 // connecting to Database
 const url = 'mongodb://localhost/cake';
-mongoose.connect(url, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: true });
+mongoose.connect(url, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false });
 const connection = mongoose.connection;
 connection.once('open', () => {
     console.log('Database connected...');
@@ -85,7 +85,7 @@ require('./routes/web')(app)
 
 //Admin Bro
 AdminBro.registerAdapter(AdminBroMongoose)
-const User = mongoose.model('User', { name: String, email: String, surname: String })
+const User = mongoose.model('User', { name: String, email: String})
 const Orders = mongoose.model('order', { customerId: mongoose.Schema.Types.ObjectId, phone: String, address: String, paymentType: String, status: String })
 const AdminBroOptions = {
     resources: [User, {

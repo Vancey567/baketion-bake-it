@@ -20,20 +20,46 @@
                     <td class="border px-4 py-2 text-left"><%= cake.size %></td>
                     <td class="border px-4 py-2 text-left"><%= cake.description %></td>
                     <td class="border px-4 py-2 text-left">
-                        <a id="editOption" href="#">
-                            <!-- <i class="fa fa-pencil" aria-hidden="true"></i> -->
+                        <!-- <a id="editOption" href="#">
                             <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
                             <select name="" id="">
                                 <option value="">
                                     <i class="fa fa-pencil" aria-hidden="true"></i>
-                                    <!-- Edit -->
+                                    Edit
                                 </option>
                                 <option value="">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
-                                    <!-- Delete -->
+                                    Delete
                                 </option>
                             </select>
-                        </a>
+                        </a> -->
+                        <div class="edit-container">
+                            <a href="/dashboard/deleteprod/<%= cake.id %>">
+                                <span>Delete</span>
+                            </a>
+                            <br>
+                            <a href="/dashboard/editproduct/<%= cake.id %>">
+                                <span>Update</span>
+                            </a>
+                            <!-- <ul class="edit-option">
+                                <li>
+                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                    <span>Edit</span>
+                                </li>
+                                <li>
+
+                                    <a href="">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                    </a>
+                                    <span>Delete</span>
+                                </li>
+                            </ul> -->
+                        </div>
+                        <div class="edit-btn">
+                            <!-- <a href=""> -->
+                                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                            <!-- </a> -->
+                        </div>
                     </td>
                 </tr>
             <% }) %>

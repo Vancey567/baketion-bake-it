@@ -172,13 +172,13 @@ socket.on('orderUpdated', (data) => {
 
 
 // Product detail page
-prodimg.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-        let prod = JSON.parse(btn.dataset.prod)
-        console.log(prod);
+// prodimg.forEach((btn) => {
+//     btn.addEventListener('click', (e) => {
+//         let prod = JSON.parse(btn.dataset.prod)
+//         console.log(prod);
         
-    })
-})
+//     })
+// })
 
 // function removeProd(prodid) {
 //     let cart =  JSON.parse(localStorage.getItem('cart'));

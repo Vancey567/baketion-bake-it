@@ -4,7 +4,7 @@ const passport = require('passport')
 const session = require('express-session')
 const admin = require('../middleware/admin')
 
-
+const regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 function authController() {
     const _getRedirectUrl = (req) => {
         return req.user.role === 'admin' ? '/admin/orders' : '/'
@@ -50,6 +50,11 @@ function authController() {
                 req.flash('name', name)
                 req.flash('email', email)
                 return res.redirect('/register')
+            } else if(!email.match(regex)) {
+                req.flash('error', 'Email format incorrect')
+                req.flash('name', name)
+                req.flash('email', email)
+                return res.redirect('/register');
             }
             // Check if email exists
             User.exists({ email: email }, (err, result) => {
@@ -80,7 +85,7 @@ function authController() {
         logout(req, res) {
             req.logout()
             // res.clearCookie(mongoStore)
-            // req.session.destroy() // Destr0ing session after logout
+            // req.session.destroy(); // Destr0ing session after logout
             return res.redirect('/login')
         }
     }
