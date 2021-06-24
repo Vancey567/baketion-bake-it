@@ -15,8 +15,13 @@
 
 5. now import `menus.json` file in `menus` collection  from the files above
 
+6. Create a .env file in the root folder and give a cookie secret 
+COOKIE_SECRET = thisismysecret
+
 # To Run this project run
 `yarn dev`
 
 # To Run laravel
 `yarn watch`
+
+
