@@ -10,10 +10,10 @@ function dashController() {
         },
 
         postAddMenu(req, res) {
-            const productId = req.params.id;
-            // console.log(productId);
+            const productId = req.body.id;
+            console.log(productId);
             const updatedData = JSON.parse(JSON.stringify(req.body));
-            // console.log(updatedData);
+            console.log(updatedData);
 
             Menu.updateOne({_id: productId}, {$set: updatedData})
             .then(() => {

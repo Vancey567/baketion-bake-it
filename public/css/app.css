@@ -622,6 +622,32 @@ footer ul li {
   font-size: 0.8rem;
 }
 
+.flavours {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  padding: 20px;
+}
+
+.flavours-item {
+  width: 22%;
+  transition: 1s;
+  box-shadow: 0 0 8px #a8a7a7;
+}
+
+.flavours-item:hover {
+  box-shadow: 0 0 12px #FE5F1E;
+}
+
+.flavours-img {
+  transition: 1s;
+}
+
+.flavours-img:hover {
+  transform: scale(1.18);
+}
+
 .optionsDiv {
   position: absolute;
   background: #c9c8c8;
