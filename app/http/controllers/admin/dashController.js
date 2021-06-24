@@ -11,9 +11,9 @@ function dashController() {
 
         postAddMenu(req, res) {
             const productId = req.params.id;
-            console.log(productId);
+            // console.log(productId);
             const updatedData = JSON.parse(JSON.stringify(req.body));
-            console.log(updatedData);
+            // console.log(updatedData);
 
             Menu.updateOne({_id: productId}, {$set: updatedData})
             .then(() => {
@@ -69,8 +69,8 @@ function dashController() {
         },
 
         editProduct(req, res) {
-            console.log('hey');
-            console.log(req.params.id);
+            // console.log('hey');
+            // console.log(req.params.id);
             // console.log(req.body);
             res.render('admin/addMenu');
         }

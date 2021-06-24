@@ -47,7 +47,7 @@ function initRoutes(app) {
     app.get('/dashboard', AdminDashController().adminDash)
     app.get('/dashboard/addMenu', AdminDashController().addMenu)
     app.post('/addmenu', AdminDashController().postAddMenu)
-    app.get('/dashboard/addOrder', AdminDashController().addOrder)
+    app.get('/dashboard/viewMenu', AdminDashController().addOrder)
 
 
 
