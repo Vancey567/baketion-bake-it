@@ -1,15 +1,14 @@
+<h1 class="justify-center">ADD NEW PRODUCT</h1>
 <section class="addMenuForm h-auto flex justify-center items-center">
     <div class="editItems">
         <a href="/dashboard/viewMenu">
             <i class="fa fa-list" aria-hidden="true">View Items</i>
         </a>
     </div>
-    <form method="POST" action="/dashboard/addMenu" class="w-1/2 bg-white shadow-md rounded px-8 pt-6 pb-8 mt-4 justify-center items-center ">
+    <form method="POST" action="/dashboard/addNewProduct" class="w-1/2 bg-white shadow-md rounded px-8 pt-6 pb-8 mt-4 justify-center items-center ">
         <% if(messages.error) { %>
             <span class="text-red-500 text-sm"><%= messages.error %></span>
           <% } %>
-        <label for="Pname" id="get_id" class="block text-gray-700 text-sm font-bold mb-2">id</label>
-        <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="id">
         <label for="Pname" class="block text-gray-700 text-sm font-bold mb-2">Product Name</label>
         <input class="block shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="prodName">
         <label for="" class="block text-gray-700 text-sm font-bold mb-2">Price</label>
@@ -24,11 +23,10 @@
     </form>
 </section>
 
-<script>
+<!-- <script>
     // console.log(location.href.split('/')[]);
    var urlArray = location.href.split('/');
    var id = urlArray[urlArray.length - 1];
    console.log(id);
-   document.getElementById('get_id').value;
 
-</script>
+</script> -->

@@ -8,7 +8,6 @@ function cartController() {
         async delete(req, res) {
           // console.log("Session User " + req.session.passport.user)
           // console.log("Session id " + req.session.id)
-          // // console.log(req.user.id)
           // console.log("User " + req.user.id)
 
           const _id = req.params.id;
@@ -21,8 +20,9 @@ function cartController() {
           // console.log(req.session.cart.items);
           res.status(302).redirect('/cart')
         },
-        update(req,res){         
-          if(req.session.passport.user === req.user.id) {
+        update(req,res){    
+          // This if() statment doesn't let user to add product to cart if they are not logged in.     
+          // if(req.session.passport.user === req.user.id) {
 
             // Create cart if theres no cart in the session
             if(!req.session.cart) {
@@ -50,7 +50,7 @@ function cartController() {
             return res.json({ totalQty: req.session.cart.totalQty })
 
           }
-        },
+        // },
     }
 }
 

@@ -85,7 +85,7 @@ function authController() {
         logout(req, res) {
             req.logout()
             // res.clearCookie(mongoStore)
-            // req.session.destroy(); // Destr0ing session after logout
+            req.session.destroy(); // Destroing session after logout
             return res.redirect('/login')
         }
     }

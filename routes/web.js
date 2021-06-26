@@ -46,9 +46,14 @@ function initRoutes(app) {
     // app.get('/dashboard', guest, AdminDashController().editMenu)
     app.get('/dashboard', AdminDashController().adminDash)
     app.get('/dashboard/addMenu', AdminDashController().addMenu)
-    app.post('/addmenu', AdminDashController().postAddMenu)
+    // app.post('/addmenu', AdminDashController().postAddMenu)
+    // app.post('/dashboard/addMenu', AdminDashController().postAddMenu)
+    app.post('/dashboard/addMenu', AdminDashController().postEditProduct)
     app.get('/dashboard/viewMenu', AdminDashController().addOrder)
 
+    // Add new Product
+    app.get('/dashboard/addNewProduct', AdminDashController().addNewProduct)
+    app.post('/dashboard/addNewProduct', AdminDashController().postAddNewProduct)
 
 
     //extra routes
@@ -71,9 +76,8 @@ function initRoutes(app) {
     
     // Edit Products from dashboard
     app.get('/dashboard/editproduct/:id', AdminDashController().editProduct)
-    app.put('/addMenu/:id', AdminDashController().postAddMenu)
+    // app.put('/addMenu/:id', AdminDashController().postAddMenu)
     
-
 }
 
 module.exports = initRoutes
