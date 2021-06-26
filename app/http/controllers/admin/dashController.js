@@ -1,12 +1,19 @@
 const Menu = require('../../../models/menu');
+const Order = require('../../../models/order');
 
 function dashController() {
     return {
         adminDash(req, res) {
             res.render('admin/dashboard');
         },
+        
         addMenu(req, res) {
             res.render('admin/addMenu');
+        },
+
+        async showAllOrders(req, res) {
+            const orders = await Order.find();
+            res.render('admin/allOrders', {orders: orders});
         },
 
         postEditProduct(req, res) {

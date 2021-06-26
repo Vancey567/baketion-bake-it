@@ -1,0 +1,31 @@
+<section class="itemsList h-screen-86px">
+    <div class="px-12 py-10">
+        <h1 class="font-bold text-lg mb-4">All Orders</h1>
+        <table class="w-full mx-auto px-16 ptable-auto bg-white">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 text-left">Orders</th>
+                    <!-- <th class="px-4 py-2 text-left">Customer</th> -->
+                    <th class="px-4 py-2 text-left">Address</th>
+                    <th class="px-4 py-2 text-left">Phone no.</th>
+                    <th class="px-4 py-2 text-left">Status</th>
+                    <th class="px-4 py-2 text-left">Placed at</th>
+                    <th class="px-4 py-2 text-left">Payment Type</th>
+                </tr>
+            </thead>
+            <% orders.forEach(function(order) { %>
+                <tr class="border">
+                    <td class="border px-4 py-2 text-left"><%= order.id %></td>
+                    <!-- <td class="border px-4 py-2 text-left"><%= order.customerId.name %></td> -->
+                    <td class="border px-4 py-2 text-left"><%= order.address %></td>
+                    <td class="border px-4 py-2 text-left"><%= order.phone %></td>
+                    <td class="border px-4 py-2 text-left"><%= order.status %></td>
+                    <td class="border px-4 py-2 text-left"><%= order.createdAt %></td>
+                    <td class="border px-4 py-2 text-left"><%= order.paymentType %></td>
+                    </td>
+                </tr>
+            <% }) %>
+        </table>
+    </div>
+</section>
+<%- include("../partials/footer.ejs") %>

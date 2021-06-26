@@ -42,20 +42,7 @@ function initRoutes(app) {
     app.get('/adminlogin', guest, AdminRegisterController().login)
     app.post('/adminlogin', AdminRegisterController().postLogin)
     
-    // Dashboard
-    // app.get('/dashboard', guest, AdminDashController().editMenu)
-    app.get('/dashboard', AdminDashController().adminDash)
-    app.get('/dashboard/addMenu', AdminDashController().addMenu)
-    // app.post('/addmenu', AdminDashController().postAddMenu)
-    // app.post('/dashboard/addMenu', AdminDashController().postAddMenu)
-    app.post('/dashboard/addMenu', AdminDashController().postEditProduct)
-    app.get('/dashboard/viewMenu', AdminDashController().addOrder)
-
-    // Add new Product
-    app.get('/dashboard/addNewProduct', AdminDashController().addNewProduct)
-    app.post('/dashboard/addNewProduct', AdminDashController().postAddNewProduct)
-
-
+    
     //extra routes
     app.get('/privacy', extraController().privacy)
     app.get('/cancellation', extraController().cancellation)
@@ -71,12 +58,28 @@ function initRoutes(app) {
     // Delete prod
     app.get('/cart/deleteCart/:id', cartController().delete)
 
+    // Dashboard
+
+    // app.get('/dashboard', guest, AdminDashController().editMenu)
+    app.get('/dashboard', AdminDashController().adminDash)
+    app.get('/dashboard/addMenu', AdminDashController().addMenu)
+    // app.post('/addmenu', AdminDashController().postAddMenu)
+    // app.post('/dashboard/addMenu', AdminDashController().postAddMenu)
+    app.post('/dashboard/addMenu', AdminDashController().postEditProduct)
+    app.get('/dashboard/viewMenu', AdminDashController().addOrder)
+
+    // Add new Product
+    app.get('/dashboard/addNewProduct', AdminDashController().addNewProduct)
+    app.post('/dashboard/addNewProduct', AdminDashController().postAddNewProduct)
+
     // Delete Product from dashboard
     app.get('/dashboard/deleteprod/:id', AdminDashController().deleteProduct)
     
     // Edit Products from dashboard
     app.get('/dashboard/editproduct/:id', AdminDashController().editProduct)
     // app.put('/addMenu/:id', AdminDashController().postAddMenu)
+
+    app.get('/dashboard/allOrder', AdminDashController().showAllOrders)
     
 }
 
